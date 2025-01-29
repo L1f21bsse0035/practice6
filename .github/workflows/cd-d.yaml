@@ -13,13 +13,13 @@ jobs:
         uses: actions/checkout@v4
       - name: Build Website
         run: |
-          npx parcel build "./src/index.html" --dist-dir "./dist" --public-url "./"
+          npx parcel build "./src/index.html" --dist-dir "./docs" --public-url "./"
       - name: Disable Jekyll
         run: echo > ./docs/.nojekyll
       - name: Upload Artifacts
         uses: actions/upload-pages-artifact@v3
         with:
-          path: "./dist"
+          path: "./docs"
           name: "development-artifact"
 
   cd-deploy-development-job:
