@@ -1,12 +1,12 @@
-name: wf-cd-staging
+name: wf-cd-production
 
 on:
   push:
     branches:
-      - "release/**"
+      - production
 
 jobs:
-  cd-build-staging-job:
+  cd-build-production-job:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
@@ -22,18 +22,18 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: "./docs"
-          name: "staging-artifact"
+          name: "production-artifact"
 
-  cd-deploy-staging-job:
-    needs: cd-build-staging-job
+  cd-deploy-production-job:
+    needs: cd-build-production-job
     permissions:
       pages: write
       id-token: write
-    environment: "staging-env"
+    environment: "production-env"
     runs-on: ubuntu-latest
     steps:
       - name: Deploy Build Artifacts on GH Pages
         uses: actions/deploy-pages@v4
         with:
-          artifact_name: "staging-artifact"
+          artifact_name: "production-artifact"
           token: ${{ github.token }}
