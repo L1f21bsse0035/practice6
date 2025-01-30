@@ -12,7 +12,7 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v4
         with:
-             ref: ${{github.ref}}
+          ref: ${{github.ref}}
       - name: Install Dependencies
         run: npm install htmlhint stylelint
       - name: Lint HTML Files
@@ -27,7 +27,7 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v4
         with:
-             ref: ${{github.ref}}
+          ref: ${{github.ref}}
       - name: Install Dependencies
         run: npm install parcel
       - name: Build Website
