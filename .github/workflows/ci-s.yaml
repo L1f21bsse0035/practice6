@@ -26,6 +26,8 @@ jobs:
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v4
+        with:
+             ref: ${{github.ref}}
       - name: Install Dependencies
         run: npm install parcel
       - name: Build Website
